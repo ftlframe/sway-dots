@@ -1,0 +1,78 @@
+/* --- swaync CSS for Purple-Soft-Rice Theme --- */
+
+/* Define colors from your theme */
+@define-color background #141216;
+@define-color foreground #d8cab8;
+@define-color accent #AC82E9;
+@define-color module-bg #27232b;
+@define-color red #fc4649;
+@define-color green #c4e881;
+
+/* Main Notification Center Window */
+.control-center {
+    background-color: alpha(@background, 0.95);
+    border: 2px solid @accent;
+    border-radius: 14px; /* Match Waybar */
+    font-family: "JetBrains Mono Nerd Font", "Maple Mono";
+}
+
+/* "No Notifications" Label */
+.widget-label {
+    color: @foreground;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+/* Individual Notification Pop-up */
+.notification {
+    background-color: @module-bg;
+    border: 1px solid @accent;
+    border-radius: 14px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.notification-content {
+    padding: 5px;
+}
+
+/* Notification Title */
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    color: @accent; /* Purple title */
+}
+
+/* Notification Body */
+.body {
+    font-size: 14px;
+    color: @foreground; /* Soft white text */
+}
+
+/* Close Button ('x') */
+.close-button {
+    background-color: @background;
+    color: @red;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 5px;
+}
+.close-button:hover {
+    background-color: @red;
+    color: @background;
+}
+
+/* Buttons inside notifications (like "Yes" / "No") */
+.notification-button {
+    background-color: @accent;
+    color: @background;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin: 5px;
+    font-weight: bold;
+}
+.notification-button:hover {
+    background-color: @foreground;
+    color: @background;
+}

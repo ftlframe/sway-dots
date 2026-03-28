@@ -1,0 +1,314 @@
+/*
+ * Rose-Pine waybar theme (matched to nvim colorscheme)
+ * Base: #080709 | Surface: #1a1520 | Cyan: #9ccfd8 | Pink: #f5b0ef
+ */
+
+@define-color base rgba(8, 7, 9, 0.85);
+@define-color surface0 rgba(26, 21, 32, 0.9);
+@define-color surface1 #211a2b;
+@define-color surface2 #2d2735;
+@define-color overlay0 #614e6e;
+@define-color text #e0ceed;
+@define-color subtext #8e6da6;
+@define-color witch #9ccfd8;
+@define-color accent #f5b0ef;
+
+* {
+  font-family: Inter, "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  border-radius: 14px;
+  font-size: 13px;
+  padding: 0px;
+  background: transparent;
+}
+
+window#waybar {
+  background-color: @base;
+  border-radius: 14px;
+  padding: 0px 8px;
+  border: none;
+}
+
+/* --- Module base styles --- */
+#battery,
+#network,
+#clock,
+#custom-applauncher,
+#custom-tray-toggle,
+#tray,
+#workspaces,
+#bluetooth,
+#pulseaudio,
+#mpris,
+#language,
+#cpu,
+#memory,
+#idle_inhibitor,
+#custom-weather,
+#custom-dnd,
+#custom-powermenu {
+  background-color: @surface0;
+  border: none;
+  margin: 2px 2px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  color: @text;
+  transition: all 200ms ease;
+}
+
+/* --- Separator between module groups --- */
+#custom-separator {
+  color: @overlay0;
+  font-size: 10px;
+  padding: 0 4px;
+  margin: 0;
+}
+
+/* --- Tooltip --- */
+tooltip {
+  background-color: #080709;
+  color: @text;
+  border: 1px solid @surface2;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* --- Clock --- */
+#clock {
+  font-weight: bold;
+}
+#clock:hover {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- MPRIS media --- */
+#mpris {
+  border-left: 3px solid transparent;
+}
+#mpris:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+#mpris.paused {
+  color: @subtext;
+  opacity: 0.7;
+}
+#mpris.playing {
+  border-left: 3px solid @witch;
+  border-radius: 8px 12px 12px 8px;
+  color: @text;
+}
+
+/* --- Tray drawer toggle --- */
+#custom-tray-toggle {
+  font-size: 12px;
+  padding: 4px 8px;
+  color: @subtext;
+}
+#custom-tray-toggle:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Tray (inside drawer) --- */
+.drawer-child {
+  border: none;
+  background: transparent;
+}
+
+#tray {
+  background: transparent;
+}
+#tray button {
+  transition: all 150ms ease;
+  all: initial;
+  min-width: 0;
+  margin-right: 0.15cm;
+  margin-left: 0.15cm;
+}
+#tray button:hover {
+  color: @witch;
+}
+#tray menu {
+  background-color: #080709;
+  color: @text;
+  padding: 4px;
+  border: 1px solid @surface2;
+  border-radius: 10px;
+}
+#tray menu menuitem {
+  background-color: @surface0;
+  margin: 3px;
+  color: @text;
+  border-radius: 6px;
+  border: none;
+}
+#tray menu menuitem:hover {
+  background-color: @surface1;
+  color: @witch;
+  font-weight: bold;
+}
+
+/* --- Pulseaudio --- */
+#pulseaudio:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- App launcher --- */
+#custom-applauncher {
+  font-weight: bold;
+}
+#custom-applauncher:hover {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Bluetooth --- */
+#bluetooth button {
+  transition: all 150ms ease;
+  all: initial;
+  min-width: 0;
+  font-weight: bold;
+  color: @text;
+  margin-right: 0.2cm;
+  margin-left: 0.2cm;
+}
+#bluetooth:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Workspaces --- */
+#workspaces button {
+  transition: all 150ms ease;
+  all: initial;
+  min-width: 0;
+  font-weight: bold;
+  color: @overlay0;
+  margin-right: 0.15cm;
+  margin-left: 0.15cm;
+}
+#workspaces button:hover {
+  color: @witch;
+}
+#workspaces button.focused {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+}
+#workspaces button.active {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+}
+#workspaces button.urgent {
+  color: #fc4649;
+  border-bottom: 2px solid #fc4649;
+}
+
+/* --- Network --- */
+#network {
+  color: @subtext;
+}
+#network:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Language --- */
+#language {
+  color: @subtext;
+}
+#language:hover {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Battery --- */
+#battery {
+  color: @text;
+  margin-right: 6px;
+}
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+  color: #fc4649;
+  border-bottom: 2px solid #fc4649;
+  border-radius: 12px 12px 8px 8px;
+}
+#battery.charging {
+  color: #c4e881;
+}
+
+/* --- CPU --- */
+#cpu {
+  color: @subtext;
+}
+#cpu:hover {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Memory --- */
+#memory {
+  color: @subtext;
+}
+#memory:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Idle inhibitor --- */
+#idle_inhibitor {
+  color: @overlay0;
+}
+#idle_inhibitor.activated {
+  color: @witch;
+}
+#idle_inhibitor:hover {
+  color: @witch;
+  border-bottom: 2px solid @witch;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Weather --- */
+#custom-weather {
+  color: @subtext;
+}
+
+/* --- Do Not Disturb --- */
+#custom-dnd {
+  color: @overlay0;
+}
+#custom-dnd:hover {
+  color: @accent;
+  border-bottom: 2px solid @accent;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Power menu --- */
+#custom-powermenu {
+  color: #fc4649;
+  font-weight: bold;
+}
+#custom-powermenu:hover {
+  border-bottom: 2px solid #fc4649;
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* --- Separator thin line style --- */
+#custom-separator {
+  color: @surface2;
+  font-size: 11px;
+  padding: 0 3px;
+  margin: 0;
+}

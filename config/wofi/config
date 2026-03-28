@@ -1,0 +1,17 @@
+show=drun
+term=ghostty
+show_all=true
+gtk_dark=false
+location=top
+yoffset=12
+insensitive=false
+allow_markup=true
+allow_images=true
+line_wrap=word
+lines=8
+width=550
+no_actions=true
+prompt=ㅤSearch
+hide_scroll=true
+print_command=true
+insensitive=true

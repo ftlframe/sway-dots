@@ -1,0 +1,42 @@
+add_newline = false
+
+format = """$directory$git_branch$git_status$cmd_duration
+$character"""
+
+[character]
+success_symbol = "[>](bold #9ccfd8)"
+error_symbol = "[>](bold #fc4649)"
+
+[directory]
+style = "#a29dfa"
+truncation_length = 4
+truncation_symbol = ".../"
+read_only = " "
+home_symbol = "~"
+
+[git_branch]
+symbol = ""
+style = "#f5b0ef"
+format = "[$symbol $branch]($style) "
+
+[git_status]
+style = "#8e6da6"
+format = "[$all_status$ahead_behind]($style)"
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "~"
+deleted = "x"
+
+[cmd_duration]
+min_time = 2000
+style = "#614e6e"
+format = "[$duration]($style) "
+
+[package]
+disabled = true
