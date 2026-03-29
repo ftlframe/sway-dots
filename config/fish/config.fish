@@ -1,5 +1,14 @@
 if status is-interactive
 
+    # Auto-start tmux — each terminal gets its own session
+    # Clean up detached sessions from closed terminals
+    if command -q tmux; and not set -q TMUX
+        for sess in (tmux list-sessions -F '#{session_name}:#{session_attached}' 2>/dev/null | string match -r '^(.+):0$' | string replace -r ':0$' '')
+            tmux kill-session -t $sess
+        end
+        tmux new-session
+    end
+
     # No greeting
     set fish_greeting
 
@@ -33,6 +42,4 @@ if status is-interactive
     alias ls 'eza --icons'
     alias pamcan 'sudo dnf'
     alias q 'qs -c ii'
-    alias peon "bash /home/lambda/.claude/hooks/peon-ping/peon.sh"
-
 end

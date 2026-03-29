@@ -57,7 +57,6 @@ default_floating_border pixel 2px
 #}
 
 #Startups
-#bindsym $mod+p exec --no-startup-id "cd /home/ailiak/eww/target/release && ./eww close powermenu || (./eww daemon & sleep 0.3 && ./eww open powermenu)"
 bindsym $mod+p exec wlogout
 # display Video capture
 #exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
@@ -196,6 +195,9 @@ input type:keyboard {
     floating_modifier $mod normal
     
     bindsym $mod+e exec $file_explorer
+
+    # Keybind cheatsheet
+    bindsym $mod+slash exec ~/.config/sway/keybinds.sh
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
