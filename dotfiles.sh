@@ -42,16 +42,9 @@ if [ "$PKG_MGR" = "apt" ]; then
         fonts-inter \
         jq
 
-    # swappy — not in Ubuntu repos, install from source
-    if ! command -v swappy &>/dev/null; then
-        echo "Installing swappy from source..."
-        sudo apt install -y meson ninja-build libcairo2-dev libpango1.0-dev libgtk-3-dev libnotify-dev scdoc 2>/dev/null
-        SWAPPY_TMP=$(mktemp -d)
-        git clone https://github.com/jtheoof/swappy.git "$SWAPPY_TMP" && \
-            cd "$SWAPPY_TMP" && meson setup build && ninja -C build && sudo ninja -C build install && \
-            cd - >/dev/null
-        rm -rf "$SWAPPY_TMP"
-    fi
+    # swappy (optional — annotation editor for screenshots)
+    # Not in Ubuntu repos. Install manually if needed: https://github.com/jtheoof/swappy
+    # Without swappy, screenshots go straight to clipboard via grim+slurp
 
     # JetBrains Mono Nerd Font (bundled)
     if ! fc-list | grep -qi "JetBrainsMono Nerd"; then
