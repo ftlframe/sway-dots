@@ -38,7 +38,7 @@ if [ "$PKG_MGR" = "apt" ]; then
         copyq \
         playerctl \
         pavucontrol \
-        grim slurp wl-clipboard \
+        grim slurp swappy wl-clipboard \
         fonts-inter \
         jq
 
@@ -75,7 +75,7 @@ elif [ "$PKG_MGR" = "dnf" ]; then
         copyq \
         playerctl \
         pavucontrol \
-        grim slurp wl-clipboard \
+        grim slurp swappy wl-clipboard \
         google-noto-fonts-common \
         jq
 

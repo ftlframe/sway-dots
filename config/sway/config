@@ -94,10 +94,9 @@ for_window [window_type="dialog"] floating enable
     bindsym $mod+Shift+n exec swaync-client -C
     bindsym $mod+slash exec ~/.config/sway/keybinds.sh
 
-    # Screenshot — grim+slurp (default, works everywhere)
-    bindsym Print exec grim -g "$(slurp)" - | wl-copy
-    bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshot_$(date +'%Y-%m-%d-%H%M%S').png
-    # Screenshot — flameshot (uncomment if available, comment out grim lines above)
+    # Screenshot — grim+slurp+swappy (default, works everywhere)
+    bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+    # Screenshot — flameshot (uncomment if available, comment out grim line above)
     #bindsym Print exec flameshot gui
 
     floating_modifier $mod normal
