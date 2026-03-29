@@ -125,6 +125,9 @@ for dir in sway waybar wofi wlogout swaync fish ghostty tmux; do
     fi
 done
 
+# Ensure scripts are executable
+chmod +x "$HOME/.config/sway/volume-up.sh" "$HOME/.config/sway/keybinds.sh" "$HOME/.config/sway/setup-displays.sh" 2>/dev/null
+
 if [ -f "$SCRIPT_DIR/config/starship.toml" ]; then
     cp "$SCRIPT_DIR/config/starship.toml" "$HOME/.config/starship.toml"
     echo "  Installed starship.toml"
