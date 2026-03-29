@@ -29,7 +29,7 @@ echo "=== Installing packages ==="
 if [ "$PKG_MGR" = "apt" ]; then
     sudo apt update
     sudo apt install -y \
-        sway swaync swaylock swayidle \
+        sway sway-notification-center swaylock swayidle \
         waybar \
         wofi \
         wlogout \
@@ -38,9 +38,20 @@ if [ "$PKG_MGR" = "apt" ]; then
         copyq \
         playerctl \
         pavucontrol \
-        grim slurp swappy wl-clipboard \
+        grim slurp wl-clipboard \
         fonts-inter \
         jq
+
+    # swappy — not in Ubuntu repos, install from source
+    if ! command -v swappy &>/dev/null; then
+        echo "Installing swappy from source..."
+        sudo apt install -y meson ninja-build libcairo2-dev libpango1.0-dev libgtk-3-dev libnotify-dev scdoc 2>/dev/null
+        SWAPPY_TMP=$(mktemp -d)
+        git clone https://github.com/jtheoof/swappy.git "$SWAPPY_TMP" && \
+            cd "$SWAPPY_TMP" && meson setup build && ninja -C build && sudo ninja -C build install && \
+            cd - >/dev/null
+        rm -rf "$SWAPPY_TMP"
+    fi
 
     # JetBrains Mono Nerd Font (bundled)
     if ! fc-list | grep -qi "JetBrainsMono Nerd"; then
