@@ -61,10 +61,10 @@ if [ "$PKG_MGR" = "apt" ]; then
         fc-cache -f
     fi
 
-    # Starship prompt
+    # Starship prompt (bundled binary)
     if ! command -v starship &>/dev/null; then
         echo "Installing starship..."
-        sudo apt install -y starship 2>/dev/null || echo "NOTE: starship not in apt repos. Install manually: https://starship.rs"
+        sudo install -m 755 "$SCRIPT_DIR/bin/starship" /usr/local/bin/starship
     fi
 
     # Ghostty — needs manual install on Ubuntu
@@ -99,7 +99,7 @@ elif [ "$PKG_MGR" = "dnf" ]; then
 
     if ! command -v starship &>/dev/null; then
         echo "Installing starship..."
-        sudo dnf install -y starship 2>/dev/null || echo "NOTE: starship not in dnf repos. Install manually: https://starship.rs"
+        sudo install -m 755 "$SCRIPT_DIR/bin/starship" /usr/local/bin/starship
     fi
 
     if ! command -v ghostty &>/dev/null; then

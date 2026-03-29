@@ -32,8 +32,10 @@ if status is-interactive
     set -g fish_pager_color_description 614e6e        # completion descriptions
     set -g fish_pager_color_selected_background --background=2d2735  # selection
 
-    # Use starship
-    starship init fish | source
+    # Use starship (install from https://starship.rs if missing)
+    if command -q starship
+        starship init fish | source
+    end
 
     # Aliases
     alias clear "printf '\033[2J\033[3J\033[1;1H'" # fix: kitty doesn't clear properly
