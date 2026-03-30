@@ -12,6 +12,11 @@ if status is-interactive
     # No greeting
     set fish_greeting
 
+    # Default editor
+    set -gx EDITOR nvim
+    set -gx VISUAL nvim
+    set -gx SUDO_EDITOR nvim
+
     # PATH additions
     fish_add_path $HOME/.cargo/bin
     fish_add_path $HOME/.local/bin
